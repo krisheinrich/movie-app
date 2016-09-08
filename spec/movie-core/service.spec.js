@@ -19,12 +19,12 @@ describe('MovieCore', function() {
 
   it('should create popular movie', function() {
 
-    var expectedData = {"movieId":"tt00776759","description":"Great movie!"};
+    var expectedData = {"movieId":"tt0076759","description":"Great movie!"};
     $httpBackend.expectPOST(/./, expectedData)
       .respond(201);
 
     var popularMovie = new PopularMovies({
-      movieId: 'tt00776759',
+      movieId: 'tt0076759',
       description: 'Great movie!'
     });
     popularMovie.$save();
@@ -46,7 +46,7 @@ describe('MovieCore', function() {
     $httpBackend.expectPUT('popular').respond(200);
 
     var popularMovie = new PopularMovies({
-      movieId: 'tt00776759',
+      movieId: 'tt0076759',
       description: 'Great movie!'
     });
     popularMovie.$update();
@@ -55,12 +55,26 @@ describe('MovieCore', function() {
   });
 
     it('should authenticate requests', function() {
-      var expectedHeaders = function(headers) {
-        return angular.fromJson(headers).authToken === 'teddybear';
+      var headerData = function(headers) {
+        return headers.authToken === 'teddybear';
       };
-      $httpBackend.expectGET('popular/tt0076759', expectedHeaders).respond(200);
-      PopularMovies.get({ movieId: 'tt0076759' });
-      $httpBackend.flush(1);
+
+      var matchAny = /.*/;
+
+      $httpBackend.whenGET(matchAny, headerData).respond(200);
+      $httpBackend.expectPOST(matchAny, matchAny, headerData).respond(200);
+      $httpBackend.expectPUT(matchAny, matchAny, headerData).respond(200);
+      $httpBackend.expectDELETE(matchAny, headerData).respond(200);
+
+      var popularMovie = { id: 'tt0076759', description: 'Great movie!' };
+
+      PopularMovies.query();
+      PopularMovies.get({ id: 'tt0076759' });
+      new PopularMovies(popularMovie).$save();
+      new PopularMovies(popularMovie).$update();
+      new PopularMovies(popularMovie).$remove();
+
+      expect($httpBackend.flush).not.toThrow();
     });
 
 });
