@@ -58,6 +58,19 @@ describe('Results Controller', function () {
     expect(omdbApi.search).toHaveBeenCalledWith('star wars');
   });
 
+  it('should set results status to error', function () {
+    spyOn(omdbApi, 'search').and.callFake(function () {
+      var deferred = $q.defer();
+      deferred.reject();
+      return deferred.promise;
+    });
+    $location.search('q', 'star wars');
+    $controller('ResultsController', { $scope: $scope });
+    $rootScope.$apply();
+
+    expect($scope.errorMessage).toBe('Something went wrong!');
+  });
+
 
 
 });
