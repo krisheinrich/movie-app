@@ -3,8 +3,6 @@ describe('MovieCore', function() {
   var PopularMovies,
       $httpBackend;
 
-  /* Load Angular module and get component instance from module
-     before each test */
   beforeEach(angular.mock.module('movieCore'));
   beforeEach(angular.mock.inject(function(_PopularMovies_, _$httpBackend_) {
     PopularMovies = _PopularMovies_;
@@ -15,7 +13,6 @@ describe('MovieCore', function() {
     $httpBackend.verifyNoOutstandingExpectation();
   });
 
-  // Unit Tests
 
   it('should create popular movie', function() {
 
@@ -54,27 +51,27 @@ describe('MovieCore', function() {
     expect($httpBackend.flush).not.toThrow();
   });
 
-    it('should authenticate requests', function() {
-      var headerData = function(headers) {
-        return headers.authToken === 'teddybear';
-      };
+  it('should authenticate requests', function() {
+    var headerData = function(headers) {
+      return headers.authToken === 'teddybear';
+    };
 
-      var matchAny = /.*/;
+    var matchAny = /.*/;
 
-      $httpBackend.whenGET(matchAny, headerData).respond(200);
-      $httpBackend.expectPOST(matchAny, matchAny, headerData).respond(200);
-      $httpBackend.expectPUT(matchAny, matchAny, headerData).respond(200);
-      $httpBackend.expectDELETE(matchAny, headerData).respond(200);
+    $httpBackend.whenGET(matchAny, headerData).respond(200);
+    $httpBackend.expectPOST(matchAny, matchAny, headerData).respond(200);
+    $httpBackend.expectPUT(matchAny, matchAny, headerData).respond(200);
+    $httpBackend.expectDELETE(matchAny, headerData).respond(200);
 
-      var popularMovie = { id: 'tt0076759', description: 'Great movie!' };
+    var popularMovie = { id: 'tt0076759', description: 'Great movie!' };
 
-      PopularMovies.query();
-      PopularMovies.get({ id: 'tt0076759' });
-      new PopularMovies(popularMovie).$save();
-      new PopularMovies(popularMovie).$update();
-      new PopularMovies(popularMovie).$remove();
+    PopularMovies.query();
+    PopularMovies.get({ id: 'tt0076759' });
+    new PopularMovies(popularMovie).$save();
+    new PopularMovies(popularMovie).$update();
+    new PopularMovies(popularMovie).$remove();
 
-      expect($httpBackend.flush).not.toThrow();
-    });
+    expect($httpBackend.flush).not.toThrow();
+  });
 
 });
