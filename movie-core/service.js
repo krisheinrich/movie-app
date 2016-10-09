@@ -12,8 +12,7 @@ angular.module('movieCore', ['ngResource'])
       },
       query: {
         method: 'GET',
-        headers: { 'authToken': token },
-        isArray: true
+        headers: { 'authToken': token }
       },
       save: {
         method: 'POST',
