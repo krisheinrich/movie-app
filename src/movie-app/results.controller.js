@@ -17,7 +17,7 @@ angular.module('movieApp')
         console.log($scope.results[index].data.Poster);
         // Replace any missing img links with the default image links
         if ($scope.results[index].data.Poster === "N/A") {
-          $scope.results[index].data.Poster = "/no_image.png";
+          $scope.results[index].data.Poster = "./no_image.png";
         }
         });
     }
