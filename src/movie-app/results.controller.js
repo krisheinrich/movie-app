@@ -9,7 +9,7 @@ angular.module('movieApp')
         $exceptionHandler(e);
       });
 
-    $scope.expand = function (index, id) {
+    $scope.toggleExpand = function (index, id) {
       omdbApi.find(id)
         .then(function (data) {
           $scope.results[index].data = data;
