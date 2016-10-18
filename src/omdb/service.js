@@ -5,7 +5,7 @@ angular.module('omdb', [])
     // to the callback in angular.mock.inject(), which is registered with the
     // 'omdb' module
     var service = {};
-    var baseUrl = 'http://www.omdbapi.com/?v=1&';
+    var baseUrl = 'https://www.omdbapi.com/?v=1&';
 
     function httpPromise(url) {
       var deferred = $q.defer();
