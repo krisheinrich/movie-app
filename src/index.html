@@ -5,23 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Movie App</title>
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <style type="text/css">
-    .container { max-width: 900px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="header">
     <div class="container">
       <div class="page-header">
-        <h1><a href="#/">MovieApp</a></h1>
+        <img id="popcorn-logo" src="/favicon.png" alt="MovieApp"/>
+        <h1 class="site-title"><a href="#/">MovieApp</a></h1>
         <p class="lead">Your Resource for Movie Data.</p>
       </div>
       <div ng-controller="SearchController">
-        <form class="form-inline-lg" ng-submit="search()">
+        <form id="search-form" class="form-inline-lg" ng-submit="search()">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter a Film Title" ng-model="query" ng-keyup="keyup()" ng-keydown="keydown()">
+            <input type="text" class="form-control" placeholder="Search for a movie title..." ng-model="query" ng-keyup="keyup()" ng-keydown="keydown()">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button" ng-click="search()">Go!</button>
             </span>
@@ -31,13 +30,15 @@
     </div>
   </div>
 
-  <div class="container">
-    <div ng-view=""></div>
-  </div>
+  <main>
+    <div class="container">
+      <div ng-view=""></div>
+    </div>
+  </main>
 
   <div class="footer">
     <div class="container">
-      <p>movie data from http://www.omdbapi.com</p>
+      <p>movie data provided by <a href="https://www.omdbapi.com">https://www.omdbapi.com</a></p>
     </div>
   </div>
 

@@ -14,7 +14,8 @@ angular.module('movieApp', ['ui.bootstrap', 'ngRoute', 'omdb', 'movieCore', 'ngM
       });
   })
   .run(function ($httpBackend) {
-    var data = ['tt0076759', 'tt0080684', 'tt0086190'],
+    var data = ['tt3774114', 'tt0454876', 'tt2488496',  'tt0071853',
+      'tt0110912', 'tt0462538', 'tt0092005', 'tt1386697', 'tt1951266', ],
         headers = {
           headers: {'Content-Type': 'application/json'}
         };

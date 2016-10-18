@@ -7,17 +7,18 @@ angular.module('movieApp')
         result: '=result'
       },
       template: [
-        '<div class="row" ng-show="result">',
+        '<div class="row front-main" ng-show="result">',
           '<div class="col-sm-4">',
-            '<img ng-src="{{result.Poster}}" alt="{{result.Title}}" width="220">',
+            '<img class="poster" ng-src="{{result.Poster}}" alt="{{result.Title}}"/>',
           '</div>',
           '<div class="col-sm-8">',
-            '<h3>{{ result.Title }}</h3>',
+            '<h2><strong>{{ result.Title }}</strong></h2>',
             '<p>{{ result.Plot }}</p>',
-            '<p><strong>Director:</strong> {{ result.Director }}</p>',
+            '<p class="row"><span class="col-sm-6"><strong>Director:</strong> {{ result.Director }}</span><span class="col-sm-6"><strong>Rating:</strong> {{ result.Rated }}</span></p>',
             '<p><strong>Actors:</strong> {{ result.Actors }}</p>',
             '<p><strong>Released:</strong> {{ result.Released }}</p>',
             '<p><strong>Genre:</strong> {{ result.Genre }}</p>',
+            '<a href="http://www.imdb.com/title/{{ result.imdbID }}">View on IMDB</a>',
           '</div>',
         '</div>',
       ].join('')

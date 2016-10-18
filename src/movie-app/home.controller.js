@@ -19,6 +19,6 @@ angular.module('movieApp')
       $interval(function () {
         ++i;
         findMovie(results[i % results.length]);
-      }, 5000);
+      }, 5600);
     });
   });

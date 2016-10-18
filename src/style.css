@@ -1,0 +1,67 @@
+body {
+  background: #88b;
+}
+
+.container {
+  background: #fff;
+  box-shadow: 3px 2px 8px rgba(60,60,60,0.5), -3px 2px 6px rgba(60,60,60,0.5);
+  padding: 0;
+}
+
+.header > .container {
+  background: #444;
+}
+
+.page-header {
+  background: #c7d7d7;
+  margin: 0;
+  padding: 1em 4.4em;
+  text-align: top;
+}
+
+.featured-title {
+  margin: 1em 2.2em;
+  text-transform: uppercase;
+}
+
+.front-main {
+  margin: 1.2em 2.6em;
+}
+
+.front-main p.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.front-main span.col-sm-6 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+h1.site-title {
+  font-family: Trebuchet, Ubuntu, sans-serif;
+}
+
+#popcorn-logo {
+  width: 110px;
+  float: left;
+}
+
+#search-form {
+  margin: 1em 0.8em;
+}
+
+.panel-group {
+  margin: 1em 1.6em;
+}
+
+img.poster {
+  display: block;
+  margin: 0 auto;
+  width: 240px;
+}
+
+.footer > .container {
+  padding: 1.2em 1.8em;
+  text-align: center;
+}
