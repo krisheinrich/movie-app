@@ -9,7 +9,7 @@ body {
 }
 
 .header > .container {
-  background: #444;
+  background: #444;%
 }
 
 .page-header {
@@ -58,7 +58,12 @@ h1.site-title {
 img.poster {
   display: block;
   margin: 0 auto;
-  width: 240px;
+  width: 100%;
+  max-width: 248px;
+}
+
+p.col-sm-6 {
+
 }
 
 .footer > .container {
